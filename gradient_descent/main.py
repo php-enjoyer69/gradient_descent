@@ -45,3 +45,26 @@ X_test = np.c_[np.ones(X_test.shape[0]), X_test]
 
 theta = np.zeros((X_train.shape[1],1))
 
+#trening
+theta, J_history = functions.gradient_descent(X_train, Y_train, theta, alpha, num_iters)
+
+#results
+print(f"Theta: \n{theta}")
+
+#final cost
+final_cost = functions.cost(X_train, Y_train, theta)
+print(f"\nFinal cost: {final_cost}")
+
+#predictions
+predictions = functions.linear_regression(X_test, theta)
+
+print("\nPredictions (first 5):")
+print(predictions[:5])
+
+print("\nReal values (first 5):")
+print(Y_test[:5])
+
+#shapes
+print("\nShapes:")
+print("X_train:", X_train.shape)
+print("Y_train:", Y_train.shape)
